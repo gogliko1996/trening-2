@@ -1,113 +1,92 @@
-// let newpag = 1;
-// function serverLink(next) {
-//   fetch("https://reqres.in/api/users?page=" + next, {
-//     method: "GET",
-//   })
-//     .then(function (server) {
-//       if (server.status !== 200) {
-//         throw server.status;
-//       }
-//       return server.json();
+// let main = document.getElementById("main");
+// let div = document.getElementById("post");
+// let clearX = document.getElementById("clearx");
+// let p_getpost = document.createElement("p");
+
+// function getserver (){
+// let server = new XMLHttpRequest ();
+// server.addEventListener ("load", function (){
+//   let serverjson = JSON.parse (this.responseText);
+
+//   serverjson.forEach((element) => {
+//     let divbox = document.createElement("div");
+//     divbox.setAttribute ("class", "stl");
+//     divbox.setAttribute ("data-id",element.id);
+
+//     let h2 = document.createElement("h2");
+//     h2.innerHTML = element.title;
+
+//     let h3 = document.createElement("h3");
+//     h3.innerText = element.id;
+
+//     let deletePost = document.createElement("button");
+//     deletePost.innerHTML = "delete";
+//     deletePost.setAttribute("data-id", element.id);
+
+//     divbox.innerHTML = `<i class="fa-solid fa-arrow-right" id="${element.id}"></i>`;
+//     divbox.appendChild(deletePost);
+//     divbox.appendChild(h2);
+//     divbox.appendChild(h3);
+//     main.appendChild(divbox);
+
+//     document.getElementById(element.id).addEventListener("click", function (ivent){
+//       div.style.display = "block";
+//       if (element.id == ivent.target.id ){
+//         let body = serverjson[element.id-1].body;
+//         p_getpost.innerText = body;
+//         div.appendChild(p_getpost);
+//       }  
 //     })
-//     .then(function (serverjson) {
-//       serverjson.data.forEach((element) => {
-//         let li = document.createElement("li");
-//         let fragment = document.createDocumentFragment();
-//         li.innerText = element.email;
-//         fragment.appendChild(li);
-//         document.getElementById("statia").appendChild(li);
-//       });
+
+//     deletePost.addEventListener ("click", function (){
+//       divbox.remove();
 //     })
-//     .catch(function (error) {
-//       let p = document.createElement("p");
-//       p.textContent = "error";
-//       document.getElementById("statia").appendChild(p);
-//     });
-// }
-// serverLink(newpag);
-// document.getElementById("submit").addEventListener("click", function () {
-//   if (newpag === 1) {
-//     newpag++;
-//     serverLink(newpag);
-//   } else {
-//     newpag--;
-//     serverLink(newpag);
-//     document.getElementById("statia").innerHTML = " ";
-//   }
-// });
 
-
-
-
-
-// let nextserver = 1;
-// function server(next) {
-//   let getserver = new XMLHttpRequest();
-//   getserver.addEventListener("load", function () {
-//     let servertext = this.responseText;
-//     let serverjson = JSON.parse(servertext);
-//     serverjson.data.forEach((element) => {
-//       let li = document.createElement("li");
-//       let fragment = document.createDocumentFragment();
-//       li.innerText = element.first_name;
-//       fragment.appendChild(li);
-//       document.getElementById("statia").appendChild(li);
-//     });
+//     clearX.addEventListener("click", function (){
+//       div.style.display = "none";
+//       p_getpost.remove();
+//     })
 //   });
-//   getserver.open("GET", "https://reqres.in/api/users?page=" + next);
-//   getserver.send();
-// }
-// server(nextserver);
-// document.getElementById("submit").addEventListener("click", function () {
-//   if (nextserver === 1) {
-//     nextserver++;
-//     server(nextserver);
-//   } else {
-//     nextserver--;
-//     server(nextserver);
-//     document.getElementById("statia").innerHTML = " ";
-//   }
 // });
+// server.open("GET", "https://jsonplaceholder.typicode.com/posts/");
+// server.send();
+
+// }
+// getserver ()
 
 
 
+let main = document.getElementById("main");
+let div = document.getElementById("post");
+let clearX = document.getElementById("clearx");
+let p_getpost = document.createElement("p");
 
-
-let nextserver = 1;
-function serverlink(next) {
-  fetch("https://reqres.in/api/users?page=" + next, {
-    method: "GET",
-  })
-    .then(function (server) {
-      if (server.status !== 200) {
-        throw server.status;
-      }
-      return server.json();
-    })
-    .then(function (jsonserver) {
-      jsonserver.data.forEach((element) => {
-        let li = document.createElement("li");
-        let fragment = document.createDocumentFragment();
-        li.innerText = element.avatar;
-        fragment.appendChild(li);
-        document.getElementById("statia").appendChild(fragment);
-      });
-    })
-    .catch(function (error) {
-      let p = document.createElement("p");
-      p.innerText = "erroe";
-      p.style.color = "red";
-      document.getElementById("statia").appendChild(p);
-    });
-}
-serverlink(nextserver);
-document.getElementById("submit").addEventListener("click", function () {
-  if (nextserver === 1) {
-    nextserver++;
-    serverlink(nextserver);
-  } else {
-    nextserver--;
-    serverlink(nextserver);
-    document.getElementById("statia").innerHTML = " ";
+function getserver (){
+fetch  ("https://jsonplaceholder.typicode.com/posts/",{
+method:'GET',
+})
+.then (function (server){
+  console.log(server);
+  if (server.status !== 200) {
+    throw server.status;
   }
-});
+  return server.json;
+})
+.then (function (serverjson){
+  console.log(serverjson);
+
+})
+.catch (function (error){
+  document.createElement("p");
+  p_getpost.innerText = "error";
+  p_getpost.style.color = "red";
+  main.appendChild(p);
+})
+
+}
+getserver ()
+
+
+
+
+
