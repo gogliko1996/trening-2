@@ -32,7 +32,7 @@ server.addEventListener ("load", function (){
     document.getElementById(element.id).addEventListener("click", function (ivent){
       div.style.display = "block";
       if (element.id == ivent.target.id ){
-        let body = serverjson[element.id].body;
+        let body = serverjson[element.id-1].body;
         p_getpost.innerText = body;
         div.appendChild(p_getpost);
       }
@@ -91,7 +91,7 @@ getserver ()
 
 //     document.getElementById(element.id).addEventListener("click", function (){
 //       div.style.display = "block";
-//         let body = serverjson[element.id-1].body;
+//         let body = serverjson[element.id].body;
 //         p_getpost.innerText = body;
 //         div.appendChild(p_getpost);
 //     })
