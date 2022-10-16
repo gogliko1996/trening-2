@@ -55,4 +55,23 @@
   width: 20px;
   height: 20px;
 }
+.fa-circle-plus {
+  position: absolute;
+  position: fixed;
+  bottom: 30px;
+  right: 30px;
+  font-size: 50px;
+}
+.fa-circle-plus:hover{
+  cursor: pointer;
+  text-shadow: 1px 2px 3px black;
+  color: rgb(41, 21, 21);
+}
+form {
+  width: 50%;
+  margin: 50px auto;
+  padding: 15px;
+  border: 2px solid black;
+  display: none; 
 
+}
