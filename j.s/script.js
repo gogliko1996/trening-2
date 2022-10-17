@@ -76,7 +76,7 @@ form.addEventListener ("submit", function (serveradd){
   fetch('https://jsonplaceholder.typicode.com/posts', {
     method: 'POST',
     body: JSON.stringify({
-      "title": serveradd.target[0].value
+      "title": serveradd.target.value
     }),
     headers: {
       'Content-type': 'application/json; charset=UTF-8',
